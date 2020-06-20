@@ -37,7 +37,7 @@ class User extends Model {
 
   /**
    *
-   * @method profiles
+   * @method profile
    *
    * @return {Object}
    */
