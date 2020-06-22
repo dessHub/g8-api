@@ -20,4 +20,6 @@ Route.group(() => {
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
 
+  Route.get('/profile', 'ProfileController.show').middleware('authVerif')
+  Route.put('/profile', 'ProfileController.update').middleware('authVerif')
 }).prefix('api/v1')

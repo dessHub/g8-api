@@ -14,7 +14,7 @@ class AuthVerif {
     try {
       await auth.check();
     } catch (error) {
-      return response.status(401).send({ message: error.message });
+      return response.status(401).send({ message: "Invalid token. Kindly login" });
     }
 
     await next()

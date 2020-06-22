@@ -12,6 +12,7 @@ class ProfileSchema extends Schema {
       table.string('gender', 60).nullable()
       table.string('id_no', 60).nullable().unique()
       table.integer('user_id', 60).notNullable()
+      table.string('profile_pic', 254).nullable()
       table.timestamps()
     })
   }
