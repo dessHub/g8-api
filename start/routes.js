@@ -16,6 +16,10 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.group(() => {
+  Route.post('/register', 'AuthController.register')
+  Route.post('/login', 'AuthController.login')
+
+  Route.get('/profile', 'ProfileController.show').middleware('authVerif')
+  Route.put('/profile', 'ProfileController.update').middleware('authVerif')
+}).prefix('api/v1')
