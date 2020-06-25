@@ -17,7 +17,7 @@ class ProfileController {
 
       return response.status(201).json(res)
     } catch (e) {
-      return response.json({message: e})
+      return response.status(401).json({message: e})
     }
   }
 
@@ -41,7 +41,7 @@ class ProfileController {
 
       return response.status(200).json(profile)
     } catch (e) {
-      return response.json({message: e})
+      return response.status(401).json({message: e})
     }
   }
 

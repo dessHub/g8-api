@@ -45,10 +45,10 @@ class AuthController {
 
         return response.status(201).json(res)
       } catch (err) {
-        response.status(401).send({ error: 'Please try again' });
+        response.status(405).send({ error: 'Please try again' });
       }
     } else {
-      response.status(401).send(validation.messages());
+      response.status(400).send(validation.messages());
     }
   }
 
@@ -87,7 +87,7 @@ class AuthController {
       return response.status(401).json({message: 'You are not registered!'})
     }
     } else {
-      response.status(401).send(validation.messages());
+      response.status(400).send(validation.messages());
     }
   }
 }
