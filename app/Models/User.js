@@ -48,6 +48,27 @@ class User extends Model {
   profile () {
     return this.hasOne('App/Models/Profile')
   }
+
+  /**
+   *
+   * @method remittances
+   *
+   * @return {Object}
+   */
+  remittances () {
+    return this.hasMany('App/Models/Remittance')
+  }
+
+  /**
+   *
+   * @method savings 
+   *
+   * @return {Object}
+   */
+  savings () {
+    return this.hasMany('App/Models/Saving')
+  }
+
 }
 
 module.exports = User
