@@ -25,7 +25,7 @@ class AuthController {
 
     if (!validation.fails()) {
       try {
-        const user = await User.create({ email,  password });
+        const user = await User.create({ email, role: 'normal',  password });
         //generate token for user;
         let token = await auth.generate(user)
 
