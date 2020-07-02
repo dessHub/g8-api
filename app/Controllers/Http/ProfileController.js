@@ -1,5 +1,7 @@
 'use strict'
 
+const User = use('App/Models/User')
+
 class ProfileController {
 
   async show ({auth, response}) {
@@ -40,6 +42,23 @@ class ProfileController {
       await profile.save()
 
       return response.status(200).json(profile)
+    } catch (e) {
+      return response.status(401).json({message: e})
+    }
+  }
+
+  async updateRole ({request, response}) {
+    try{
+
+      const { role, user_id } = request.all()
+
+      const user = await User.find(user_id)
+
+      user.role = role
+
+      await user.save()
+
+      return response.status(200).json(user)
     } catch (e) {
       return response.status(401).json({message: e})
     }
