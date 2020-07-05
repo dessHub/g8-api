@@ -24,5 +24,5 @@ Route.group(() => {
   Route.put('/profile', 'ProfileController.update').middleware('authVerif')
   Route.get('/users', 'MemberController.index').middleware('authVerif')
 
-  Route.put('/admin/profile', 'ProfileController.updateRole').middleware('isAdmin')
+  Route.put('/admin/profile', 'ProfileController.updateRole').middleware('authAdmin')
 }).prefix('api/v1')
