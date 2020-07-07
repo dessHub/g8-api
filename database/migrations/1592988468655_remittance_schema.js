@@ -9,6 +9,7 @@ class RemittanceSchema extends Schema {
       table.increments()
       table.integer('amount', 60).notNullable()
       table.integer('user_id', 60).notNullable()
+      table.integer('created_by', 60).notNullable()
       table.string('ref_id', 254).nullable()
       table.timestamps()
     })
