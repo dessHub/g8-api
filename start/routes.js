@@ -24,5 +24,10 @@ Route.group(() => {
   Route.put('/profile', 'ProfileController.update').middleware('authVerif')
   Route.get('/users', 'MemberController.index').middleware('authVerif')
 
+  Route.get('/remittances', 'RemittanceController.index').middleware('authVerif')
+  Route.get('/remittances/:id', 'RemittanceController.show').middleware('authVerif')
+  Route.get('/myremittances', 'RemittanceController.myRemittances').middleware('authVerif')
+
   Route.put('/admin/profile', 'ProfileController.updateRole').middleware('authAdmin')
+  Route.post('/admin/remit', 'RemittanceController.store').middleware('authAdmin')
 }).prefix('api/v1')
