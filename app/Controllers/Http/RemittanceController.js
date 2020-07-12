@@ -8,7 +8,7 @@ class RemittanceController {
     try {
       let remittances = await Remittance.query()
                     .with('saving')
-                    .with('user')
+                    .with('user.profile')
                     .fetch()
   
       return response.status(200).json(remittances)
@@ -36,7 +36,7 @@ class RemittanceController {
     }
   }
 
-  async myRemittances ({params, response, auth}) {
+  async myRemittances ({response, auth}) {
     try {
 
       const authUser = await auth.getUser()
